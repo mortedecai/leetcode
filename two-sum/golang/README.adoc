@@ -1,6 +1,6 @@
 = Two Sum Leet Code Solution Highlights - Golang
 ifdef::env-github[]
-:note-caption: :bulb:
+:tip-caption: :bulb:
 :warning-caption: :heavy_exclamation_mark:
 endif::[]
 :toc:
