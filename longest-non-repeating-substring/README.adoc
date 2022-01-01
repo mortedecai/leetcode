@@ -1,0 +1,20 @@
+= Add Two Numbers Leet Code Problem
+
+== Question
+
+Given a string s, find the length of the longest substring without repeating characters.
+
+== Examples
+
+|===
+| Input | Output | Explanation
+
+|`"a"` | 1 | The longest substring is the entire string `a`.
+|`"abcdefghij"` | 10 | The longest substring is the entire string.
+|`"abcdefghija"` | 10 | The longest substring is the entire string - 1 (last char
+repeats).
+|`"abcabcbb"` | 3 | The longest substring(s) are `abc`, `bca` and `cab` with length 3.
+|`"bbbbb"` | 1 | The longest substring is `b` with length 1
+|`"pwwkew"` | 3 | The longest substring is `wke` (note: substring *NOT* subsequence)
+
+|===

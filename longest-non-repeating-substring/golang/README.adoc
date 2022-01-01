@@ -1,0 +1,32 @@
+= Add Two Numbers Leet Code Solution Highlights - Golang
+ifdef::env-github[]
+:tip-caption: :bulb:
+:warning-caption: :heavy_exclamation_mark:
+endif::[]
+:toc:
+:toc-placement!:
+
+The following discusses the sample solution for LeetCode's Longest Substring
+Without Repeating Characters problem.
+
+toc::[]
+
+== LeetCode Solution Metrics
+TIP: 4ms; faster than 90.43% of Go solutions
+
+TIP: 2.5 MB; less than 90.99% of Go solutions
+
+
+== Solution Discussion
+
+=== Overview
+
+Since the problem is asking for the longest substring without repeating characters,
+there are a few facts we can make use of in constructing our solution:
+
+1. For any string `str`, if there are no repeating characters, `len(str)` is the correct return value.
+    * This means that if a string is length 1, we can return 1 immediately.
+2. For any string `str` with one repeating character (`loc` & `idx` respectively)
+    * The maximum substring either contains `loc` (e.g. is bounded from `[0, idx)`)
+    or `idx` (e.g.  is bounded from `(loc, idx]`)
+3. We can extrapolate (2) to be viable for any number of repeating characters.
