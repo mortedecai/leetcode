@@ -1,0 +1,76 @@
+= Add Two Numbers Leet Code Solution Highlights - Golang
+ifdef::env-github[]
+:tip-caption: :bulb:
+:warning-caption: :heavy_exclamation_mark:
+endif::[]
+:toc:
+:toc-placement!:
+
+The following discusses the sample solution for LeetCode's Add Two Numbers problem.
+
+toc::[]
+
+== LeetCode Solution Metrics
+TIP: 12ms; faster than 56.90% of Go solutions
+
+TIP: 4.8 MB; less than 94.64% of Go solutions
+
+
+== Solution Discussion
+
+=== Overview
+
+To minimize the extra memory and time required, a finger pointer is created which
+will be used to iterate through each of the addends (`addendFinger`).
+
+A result finger is used to iterate through the result at each point and add the
+value of the current addend position to the correct result position.
+
+The solution will add extra nodes to the result if and only if `l2` is longer
+than `l1` *OR* `l1` + `l2` induces a carry-over that extends the result by 1.
+
+=== Finger
+
+The idea of a finger pointer is to keep track of where you are in a list and/or
+array.  Similar to the idea of first reading in English and using your finger to track where you are in the word while sounding it out.
+
+=== Non-Duplication
+
+Memory usage is minimized by not duplicating any of the input values.  Instead, a
+new value, `result`, is created which is equal to `0 +  l1`.
+
+When `l2` is added to `l1` the same additon principal can be applied.
+
+=== Enhancements
+
+It would be relatively simple to enhance this function to:
+
+* Take an array of `*ListNode` instances and sum all of them together for one
+result; OR
+* Take an array of `*ListNode` instances and return the sums for each value added
+together once (e.g. `vals[0] + vals[1]`, etc.).
+
+== Testing Discussion
+
+The testing is done via parameterized tests, with the following requirements:
+
+* Numbers should be able to be written in standard Latin string format
+    * E.g. one hundred = "100" *not* "001"
+* Test cases should be easy to add remove
+
+=== Helper Functions
+
+Three testing helper functions were added to make testing easier.
+
+* `convertFromString(val string) *ListNode` - This method takes the standard Latin
+string representation of a number and converts it to the desired reverse node
+representation.
+
+* `stringRep(v *ListNode) string`  - This method takes the incoming ListNode pointer
+and converts the value to a string representation in the same order (reversed) as
+required by the question:
+    * A value is represented by `(x)` where x is a digit from 0 - 9; AND
+    * A link traversal is represented by ` -> `.
+    * For example, 10 would be returned as the string: `"(0) -> (1)"`
+
+* `checkExpectedResult(result *ListNode, expResult *ListNode) bool` -
