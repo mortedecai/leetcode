@@ -1,0 +1,44 @@
+= Two Sum Leet Code Solution Highlights - Golang
+ifdef::env-github[]
+:note-caption: :bulb:
+:warning-caption: :heavy_exclamation_mark:
+endif::[]
+:toc:
+:toc-placement!:
+
+The following discusses the sample solution for LeetCode's Two Sum problem.
+
+toc::[]
+
+== LeetCode Solution Metrics
+TIP: 8ms faster than 54.94% of Go solutions
+
+TIP: 6.4 MB less than 12.91% of Go solutions
+
+
+== Solution Discussion
+
+=== Overview
+
+The general idea is to create a map of values (entries in the `nums` array) to their
+indices (positions in `nums` array).  This allows O(1) lookup for the difference
+and its array location.
+
+From there, the code is simple, to look up the difference in the map and return the
+first available index for the value.
+
+The main caveat is that if the first value is half of `target` exactly, then the
+original index array needs to have a length >= 2, otherwise it does not have a
+solution available.
+
+=== Value Index Map
+
+* Allows for quick lookup of differences between the current value and the difference from `target`
+* Allows to map multiple indices to the same value (case here value is half of target)
+* Allows for an efficient lookup of whether or not `target - value` is present.
+* O(n) runtime
+
+=== Search Value Index Map For Solution
+
+* Accounts for the first value being half of target (e.g. value == 2, target == 4)
+* Accounts for the difference not being present in the map
